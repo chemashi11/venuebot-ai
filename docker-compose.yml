@@ -17,8 +17,8 @@ services:
       - "8000:8000"
     depends_on:
       - db
-    environment:
-      - DATABASE_URL=postgresql://venuebot_admin:secretpassword@db:5432/venuebot_db
+    env_file:
+      - .env 
     volumes:
       - ./backend:/app
 
