@@ -1,5 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.core.database import engine, Base
+from app.models import User, Resource, MenuItem, Booking
+from app.api import auth # <-- Import the auth route
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="VenueBot AI API",
@@ -15,10 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Include the routers
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
+
 @app.get("/")
 def read_root():
     return {"status": "healthy", "service": "VenueBot AI Backend"}
-
-@app.get("/api/v1/health")
-def health_check():
-    return {"status": "ok", "version": "0.1.0"}
