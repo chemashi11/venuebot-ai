@@ -1,0 +1,44 @@
+# =========================
+# Python (Backend)
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+*.sqlite3
+
+# =========================
+# Node.js (Web Dashboard)
+# =========================
+node_modules/
+npm-debug.log
+yarn-error.log
+build/
+dist/
+.next/
+out/
+
+# =========================
+# Flutter (Mobile Apps)
+# =========================
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# =========================
+# IDE and OS Files
+# =========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =========================
+# Docker and Database Data
+# =========================
+postgres_data/
